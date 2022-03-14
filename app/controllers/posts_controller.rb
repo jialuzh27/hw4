@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def create
     if @current_user
       @post = Post.new(params["post"])
-      @post.user_id = :user_id
+      @post.user_id = @current_user.id
       @post.save
       
       redirect_to "/places/#{@post.place.id}"

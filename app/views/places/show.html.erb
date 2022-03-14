@@ -2,7 +2,7 @@
 
 <h2>My Posts</h2>
 <% for post in @place.posts %>
-  <% if post.user_id == :user_id %>
+  <% if @current_user && post.user_id == @current_user.id %>
     <h3><%= post.title %></h3>
     <h4><%= post.posted_on %></h4>
     <p><%= post.description %></p>
